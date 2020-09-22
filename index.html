@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouMe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Meddon&family=MedievalSharp&family=Ramabhadra&family=Red+Hat+Display&family=Sonsie+One&family=Tajawal&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0px;
+        min-width: 570px;
+    }
+
+    header {
+        min-width: 570px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100px;
+        background-color: #FFFFFF;
+        box-shadow: 0 5px 18px -16px #000000ad;
+        line-height: 100px;
+    }
+
+    .header__center {
+        max-width: 850px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .header__logo-text {
+        font-family: Ramabhadra;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 70px;
+        /* line-height: 133px; */
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        text-shadow: 5px 0px 2px #00000054;
+    }
+
+    .header__email {
+        border: 1px solid #01CC98;
+        border-radius: 4px;
+        color: #01CC98;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        width: 60px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    main {
+        box-sizing: border-box;
+        min-height: 100%;
+        max-width: 850px;
+        margin: 0 auto;
+        margin-top: -100px;
+        padding-top: 240px;
+    }
+
+    #main__profile {
+        position: relative;
+        height: 182px;
+        padding-left: 31px;
+    }
+
+    .main__profile-name {
+        font-family: MedievalSharp;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 41px;
+        margin-bottom: 19px;
+    }
+
+    .main__profile-description {
+        font-family: Meddon;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 34px;
+    }
+
+    .main__profile-photo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        width: 128px;
+    }
+
+    #main__title {
+        min-width: 570px;
+        height: 357px;
+        background: #133455;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        line-height: 357px;
+    }
+
+    .main__title-text {
+        font-family: Red Hat Display;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 70px;
+        line-height: 93px;
+        color: #FFFFFF;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #main__quote {
+        margin-top: 357px;
+        padding: 51px;
+        border-bottom: 1px solid #000000;
+    }
+
+    .main__quote-text {
+        font-family: Tajawal;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    #main__stories {
+        padding: 28px 0;
+    }
+
+    .main__stories-list {
+        list-style-type: none;
+        padding: 0;
+
+    }
+
+    .main__stories-item {
+        margin: 7px 0;
+    }
+
+    .main__story {
+        border: 1px solid #888888;
+        height: 89px;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+        border-radius: 39px;
+        text-align: center;
+        line-height: 89px;
+    }
+
+    .main__story-title {
+        font-family: Sonsie One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 22px;
+        display: inline-block;
+    }
+
+    footer {
+        box-sizing: border-box;
+        height: 100px;
+        background-color: #133455;
+        text-align: center;
+        padding-top: 50px;
+        color: #FFFFFF;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header__center">
+            <h1 class="header__logo-text">YouMe</h1>
+            <a href="mailto:parkddongbird@gmail.com">
+                <div class="header__email">
+                    email
+                </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section id="main__profile">
+            <div class="main__profile-info">
+                <div class="main__profile-name">Yoon Chul Park</div>
+                <div class="main__profile-description">Editor of A Record Than A Memory</div>
+            </div>
+            <img class="main__profile-photo" src="2019-08-23.jpg" alt="">
+        </section>
+        <section id="main__title">
+            <h1 class="main__title-text">A Record Than A Memory</h1>
+        </section>
+        <section id="main__quote">
+            <p class="main__quote-text">“Nobody tells this to people who are beginners, I wish someone told me. All of
+                us who do creative work,
+                we get into it because we have good taste. But there is this gap. For the first couple years you make
+                stuff, it’s just not that good. It’s trying to be good, it has potential, but it’s not. But your taste,
+                the thing that got you into the game, is still killer. And your taste is why your work disappoints you.
+                A lot of people never get past this phase, they quit. Most people I know who do interesting, creative
+                work went through years of this. We know our work doesn’t have this special thing that we want it to
+                have. We all go through this. And if you are just starting out or you are still in this phase, you gotta
+                know its normal and the most important thing you can do is do a lot of work. Put yourself on a deadline
+                so that every week you will finish one story. It is only by going through a volume of work that you will
+                close that gap, and your work will be as good as your ambitions. And I took longer to figure out how to
+                do this than anyone I’ve ever met. It’s gonna take awhile. It’s normal to take awhile. You’ve just gotta
+                fight your way through.” ― Ira Glass</p>
+        </section>
+        <section id="main__stories">
+            <ul class="main__stories-list">
+                <li class="main__stories-item">
+                    <a
+                        href="https://medium.com/a-record-than-a-memory/%EC%93%B0%EB%8B%A4%EB%B3%B4%EB%8B%88-%EC%84%A0%ED%98%B8%EC%99%80-%ED%8E%B8%EA%B2%AC%EC%82%AC%EC%9D%B4-%EA%B7%B8%EB%83%A5-%EC%8B%B8%EC%9B%8C%EC%84%9C-%EC%9D%B4%EA%B2%A8-%EB%B0%98%EB%B3%B5-94ef49ffc161">
+                        <div class="main__story">
+                            <h2 class="main__story-title">회고록</h2>
+                        </div>
+                    </a>
+
+                </li>
+                <li class="main__stories-item">
+                    <a href="https://medium.com/a-record-than-a-memory">
+                        <div class="main__story">
+                            <h2 class="main__story-title">JS 잡썰[조선시대 제곱근 구하기]</h2>
+                        </div>
+                    </a>
+                </li>
+                <li class="main__stories-item">
+                    <a href="https://medium.com/a-record-than-a-memory/archive">
+                        <div class="main__story">
+                            <h2 class="main__story-title">MORE...</h2>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        welcome to my world
+    </footer>
+
+</body>
+
+</html>
