@@ -17,23 +17,19 @@
     var commentInput = document.querySelector('#comment-input');
     var warning = document.querySelector('#warning');
 
-    showTweets(DATA);
+    var data = load('data') || DATA;
 
-    commentList.addEventListener('click', function (event) {
-        if (event.target.className === 'comment__name') {
-            data = DATA.filter(function (tweet) {
-                return tweet.user === event.target.textContent;
-            })
-            showTweets(data);
-        }
-    });
+    moment.locale('ko');
+
+    showTweets(data);
 
     tweetButton.addEventListener('click', function () {
         if (nameInput.value && commentInput.value) {
             var tweet = createNewTweet(nameInput.value, commentInput.value)
-            DATA.push(tweet);
-            showTweets(DATA);
+            data.push(tweet);
+            showTweets(data);
             clear();
+            save(data)
         }
         else {
             warning.textContent = '이름과 내용이 필요합니다.';
@@ -42,26 +38,21 @@
     randomButton.addEventListener('click', function (event) {
         var tweet = generateNewTweet();
         tweet.created_at = tweet.created_at.format();
-        DATA.push(tweet);
-        showTweets(DATA);
+        data.push(tweet);
+        showTweets(data);
+        save(data)
+    });
+    commentList.addEventListener('click', function (event) {
+        if (event.target.className === 'comment__name') {
+            showTweets(data.filter(function (tweet) {
+                return tweet.user === event.target.textContent;
+            }));
+        }
     });
 
-
-    function clear() {
-        nameInput.value = '';
-        commentInput.value = '';
-        warning.textContent = '';
-    }
-    function createNewTweet(userName, comment) {
-        var tweet = {};
-        tweet.user = userName
-        tweet.message = comment
-        tweet.created_at = new Date().format();
-        return tweet;
-    }
     function showTweets(data) {
         commentList.innerHTML = '';
-        for (let i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             showTweet(data[i]);
         }
     }
@@ -72,6 +63,29 @@
     function prepareLiClone(tweet) {
         template.querySelector('.comment__name').textContent = tweet.user;
         template.querySelector('.comment__text').textContent = tweet.message;
-        template.querySelector('.comment__date').textContent = tweet.created_at;
+        template.querySelector('.comment__date').textContent = moment(tweet.created_at).fromNow();
+    }
+    function createNewTweet(userName, comment) {
+        var tweet = {};
+        tweet.user = userName
+        tweet.message = comment
+        tweet.created_at = new Date().format();
+        return tweet;
+    }
+    function clear() {
+        nameInput.value = '';
+        commentInput.value = '';
+        warning.textContent = '';
+    }
+
+
+
+    function load(key) {
+        if (key in localStorage) {
+            return JSON.parse(localStorage.getItem(key));
+        }
+    }
+    function save(data) {
+        localStorage.setItem('data', JSON.stringify(data));
     }
 })();
