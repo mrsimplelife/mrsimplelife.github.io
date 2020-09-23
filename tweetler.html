@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <title>twittler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="data.js"></script>
+</head>
+
+<body>
+  <!-- 여기에 HTML 구조를 작성하세요. 아래 코드는 예제이며, 얼마든지 바꿀 수 있습니다 -->
+  <!-- <div id="greeting">twittler</div>
+  <div id="test"></div>-->
+  <div class="container">
+    <header>
+      <h1>Tweetler</h1>
+    </header>
+    <section id="comment-writer">
+      <div class="row">
+        UserName
+      </div>
+      <div class="row">
+        <input id="name-input" type="text">
+      </div>
+      <div class="row">
+        comment
+      </div>
+      <div class="row">
+        <textarea id="comment-input"></textarea>
+      </div>
+      <div class="row">
+        <input id="tweet-button" type="button" value="Tweet!"> <span id="warning"></span>
+      </div>
+    </section>
+    <section id="comment-reader">
+      <div>
+        <input id="random-button" type="button" value="check new tweet">
+      </div>
+      <ul id="comment-list">
+        <template>
+          <li class="comment">
+            <div>
+              <span class="comment__name">ingikim</span>
+              <span class="comment__date">2019-01-03 12:30:20</span>
+            </div>
+            <div class="comment__text">
+              Welcome to Code States #codestates
+            </div>
+          </li>
+        </template>
+      </ul>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
