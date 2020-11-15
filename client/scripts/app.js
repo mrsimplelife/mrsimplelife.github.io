@@ -28,7 +28,7 @@ const app = {
         text: this.$textInput.value
       });
     });
-    this.autoFetch();
+    // this.autoFetch();
   },
   send(message) {
     fetch(this.server, {
