@@ -15,7 +15,7 @@ const app = {
       this.$spinner && (this.$spinner.style.opacity = 1);
       this.clearMessages();
       this.$roomnameInput.value = this.$roomSelect.value;
-
+      this.render();
     });
     this.$sendButton && this.$sendButton.addEventListener('click', () => {
       if (!this.$roomnameInput.value || !this.$usernameInput.value || !this.$textInput.value) {
@@ -28,6 +28,7 @@ const app = {
         text: this.$textInput.value
       });
     });
+    this.render();
     this.autoFetch();
   },
   send(message) {
@@ -46,6 +47,7 @@ const app = {
         }
         this.$roomSelect.value = this.$roomnameInput.value;
       }
+      this.render();
     });
   },
   fetch(callback) {
@@ -78,26 +80,8 @@ const app = {
   },
   autoFetch() {
     setInterval(() => {
-      if (this.$roomSelect && this.$roomSelect.value !== '') {
-        this.fetchForRoom(json => {
-          for (let i = this.messages.length; i < json.results.length; i++) {
-            this.renderMessage(json.results[i]);
-          }
-          this.$spinner && (this.$spinner.style.opacity = 0);
-        });
-      }
-      else {
-        this.fetch(json => {
-          for (let i = this.messages.length; i < json.results.length; i++) {
-            this.renderMessage(json.results[i]);
-            if (json.results[i].roomname && !this.rooms.includes(json.results[i].roomname)) {
-              this.addOptions(json.results[i].roomname);
-            }
-          }
-          this.$spinner && (this.$spinner.style.opacity = 0);
-        });
-      }
-    }, 1000);
+      this.render();
+    }, 5000);
   },
 
   addOptions(room) {
@@ -107,6 +91,27 @@ const app = {
     $option.textContent = room;
     this.$roomSelect && this.$roomSelect.appendChild($option);
   },
+  render() {
+    if (this.$roomSelect && this.$roomSelect.value !== '') {
+      this.fetchForRoom(json => {
+        for (let i = this.messages.length; i < json.results.length; i++) {
+          this.renderMessage(json.results[i]);
+        }
+        this.$spinner && (this.$spinner.style.opacity = 0);
+      });
+    }
+    else {
+      this.fetch(json => {
+        for (let i = this.messages.length; i < json.results.length; i++) {
+          this.renderMessage(json.results[i]);
+          if (json.results[i].roomname && !this.rooms.includes(json.results[i].roomname)) {
+            this.addOptions(json.results[i].roomname);
+          }
+        }
+        this.$spinner && (this.$spinner.style.opacity = 0);
+      });
+    }
+  }
 };
 
 app.init();
